@@ -1,0 +1,64 @@
+import React from "react";
+import { SafeAreaView, StatusBar, Platform, View, Text, StyleSheet } from "react-native";
+import PropTypes from "prop-types";
+
+function Box({ children }) {
+  return (
+    <View style={styles.box}>
+      <Text style={styles.boxText}>{children}</Text>
+    </View>
+  );
+}
+Box.propTypes = { children: PropTypes.node.isRequired };
+
+function Column({ children }) {
+  return <View style={styles.column}>{children}</View>;
+}
+Column.propTypes = { children: PropTypes.node.isRequired };
+
+function Row({ children }) {
+  return <View style={styles.row}>{children}</View>;
+}
+Row.propTypes = { children: PropTypes.node.isRequired };
+
+export default function App() {
+  return (
+    <SafeAreaView style={styles.safeArea}>
+      <View style={styles.container}>
+        <Row>
+          <Column><Box>#1</Box><Box>#3</Box></Column>
+          <Column><Box>#2</Box><Box>#4</Box></Column>
+        </Row>
+        <Row>
+          <Column><Box>#5</Box><Box>#7</Box></Column>
+          <Column><Box>#6</Box><Box>#8</Box></Column>
+        </Row>
+        <Row>
+          <Column><Box>#9</Box><Box>#10</Box></Column>
+          <Column><Box>#11</Box><Box>#12</Box></Column>
+        </Row>
+      </View>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: "#fff",
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+  },
+  container: { flex: 1 },
+  row: { flex: 1, flexDirection: "row" },
+  column: { flex: 1, flexDirection: "column" },
+  box: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    borderWidth: 1,
+    borderColor: "#999",
+    backgroundColor: "#ddd",
+    margin: 2,
+  },
+  boxText: { fontSize: 18, fontWeight: "bold", color: "#333" },
+});
