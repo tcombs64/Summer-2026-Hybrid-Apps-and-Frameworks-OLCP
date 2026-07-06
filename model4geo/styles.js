@@ -16,9 +16,24 @@ export default StyleSheet.create({
     padding: 12,
     paddingTop: 48,
     backgroundColor: "ghostwhite",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
   },
   label: {
     fontSize: 16,
-    textAlign: "center",
+    flex: 1,
+  },
+  button: {
+    marginLeft: 12,
+    paddingVertical: 6,
+    paddingHorizontal: 14,
+    backgroundColor: "royalblue",
+    borderRadius: 6,
+  },
+  buttonText: {
+    color: "white",
+    fontSize: 15,
+    fontWeight: "600",
   },
 });
