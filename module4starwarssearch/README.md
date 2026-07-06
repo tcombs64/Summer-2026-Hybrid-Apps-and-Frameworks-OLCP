@@ -17,12 +17,21 @@ and an Android drawer.
 
 ## File structure
 
-- `App.js` — navigation (iOS tabs / Android drawer)
+- `App.js` — wraps the platform navigator in a `NavigationContainer`
+- `Navigation.ios.js` — bottom tabs (iOS)
+- `Navigation.android.js` — drawer (Android)
+- `Navigation.js` — bottom tabs (web / fallback)
 - `screens/` — `PlanetsScreen`, `FilmsScreen`, `SpaceshipsScreen`
 - `components/SearchScreen.js` — reusable screen with the search box + modal
 - `components/SearchModal.js` — the modal that displays the submitted term
 - `styles.js` — shared styles
 - `App.snack-single-file.js` — everything combined for Expo Snack
+
+The navigator is split into platform-specific files so that iOS only loads
+the bottom-tab navigator. The Android drawer depends on
+`react-native-reanimated`, whose native module can crash in Expo Go on iOS;
+keeping it in an Android-only file avoids that while preserving the original
+iOS-tabs / Android-drawer behavior.
 
 ## Running it
 
