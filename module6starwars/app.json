@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "module6starwarsoffline",
-    "slug": "module6starwarsoffline",
+    "name": "module6starwars",
+    "slug": "module6starwars",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
