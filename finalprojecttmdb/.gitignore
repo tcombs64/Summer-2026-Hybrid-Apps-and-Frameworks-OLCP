@@ -1,0 +1,10 @@
+# dependencies
+node_modules/
+
+# Expo
+.expo/
+dist/
+web-build/
+
+# dev server log
+expo-web.log
